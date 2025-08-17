@@ -1,24 +1,12 @@
-var React = require("react");
-
-// Define a component using createClass
-var Counter = React.createClass({
-  getInitialState: function() {
-    return { count: 0 };
-  },
-  increment: function() {
-    this.setState({ count: this.state.count + 1 });
-  },
+// Define a simple React component
+var Hello = React.createClass({
   render: function() {
-    return React.createElement("div", null,
-      React.createElement("h1", null, "React 0.13 Counter"),
-      React.createElement("p", null, "Count: " + this.state.count),
-      React.createElement("button", { onClick: this.increment }, "Increment")
-    );
+    return React.DOM.h1(null, "Hello World");
   }
 });
 
-// Render into DOM (no ReactDOM yet)
-React.render(
-  React.createElement(Counter, null),
+// Render the component into the DOM
+React.renderComponent(
+  Hello(),
   document.getElementById("app")
 );
